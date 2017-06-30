@@ -33,7 +33,7 @@ var app = {
 
 app.initialize();
 
-var game = new Phaser.Game(800,600, Phaser.AUTO, 'test video', {preload:preload, create:create});
+var game = new Phaser.Game(800,600, Phaser.CANVAS, 'test video', {preload:preload, create:create});
 
 function preload() {
   game.load.video("liquid", "assets/liquid2.mp4")
@@ -43,6 +43,8 @@ var video;
 
 function create() {
   video = game.add.video('liquid');
+  video.width = 640;
+  video.height = 480;
   video.play(true);
   video.addToWorld();
 }
